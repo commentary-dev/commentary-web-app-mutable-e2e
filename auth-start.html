@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mutable Web App Review Fixture — Sign in</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section>
+        <p class="eyebrow">Authentication fixture</p>
+        <h1>Signing in outside the iframe</h1>
+        <p>The fixture performs a full-page redirect and preserves the opaque launch fragment.</p>
+        <button id="continue-sign-in" type="button">Continue sign in</button>
+      </section>
+    </main>
+    <script>
+      document.getElementById("continue-sign-in").addEventListener("click", function continueSignIn() {
+        window.location.assign("/auth-return" + window.location.search + window.location.hash);
+      });
+    </script>
+  </body>
+</html>

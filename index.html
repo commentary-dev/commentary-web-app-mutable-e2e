@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mutable Web App Review Fixture</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+      (function configureCommentaryReviewParent() {
+        var commentaryParentOrigins = ["https://commentary.dev", "https://staging.commentary.dev", "http://localhost:3000", "http://localhost:3001"];
+        var allowedParentOrigins = new Set(commentaryParentOrigins);
+        var referrerOrigin = document.referrer ? new URL(document.referrer).origin : "";
+        window.__COMMENTARY_PARENT_ORIGINS__ = commentaryParentOrigins;
+        window.__COMMENTARY_PARENT_ORIGIN__ = allowedParentOrigins.has(referrerOrigin) ? referrerOrigin : "https://commentary.dev";
+      })();
+      window.__COMMENTARY_COMMIT_SHA__ = "mutable-fixture-commit";
+      window.__COMMENTARY_BUILD_ID__ = "mutable-fixture-build";
+    </script>
+    <script src="https://cdn.commentary.dev/review-sdk/0.3.0/commentary-review-sdk.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="/" data-route-link>Overview</a>
+      <a href="/settings/billing" data-route-link>Billing</a>
+      <a href="/release-notes" data-route-link>Release notes</a>
+    </header>
+
+    <main class="app-shell">
+      <section data-page="home">
+        <p class="eyebrow">Mutable automation</p>
+        <h1>Mutable Web App Review fixture</h1>
+        <p>This fixture is reserved for write tests and deployment mutation checks.</p>
+        <button
+          type="button"
+          class="primary-action"
+          data-commentary-id="MutableWebAppFixture.primaryCta"
+          data-commentary-component="MutableWebAppFixture"
+          data-commentary-source="src/MutableWebAppFixture.tsx:30:7">
+          Primary CTA
+        </button>
+        <form class="fixture-form" data-commentary-id="MutableWebAppFixture.profileForm">
+          <label for="fixture-name">Display name</label>
+          <input id="fixture-name" name="displayName" autocomplete="name" value="Reviewer">
+          <label for="fixture-secret">Sensitive value</label>
+          <input id="fixture-secret" name="secret" type="password" autocomplete="current-password" value="not-collected">
+          <button type="button" data-commentary-id="MutableWebAppFixture.secondaryCta">Secondary action</button>
+        </form>
+        <aside class="collision-target" data-commentary-id="MutableWebAppFixture.collisionTarget">
+          High stacking fixture control
+        </aside>
+        <div class="long-page" aria-label="Long page fixture">
+          <p>Scroll target one</p>
+          <p>Scroll target two</p>
+          <p>Scroll target three</p>
+        </div>
+      </section>
+
+      <section data-page="billing" hidden>
+        <p class="eyebrow">Settings</p>
+        <h1>Billing settings</h1>
+        <button
+          type="button"
+          data-commentary-id="MutableWebAppFixture.saveButton"
+          data-commentary-component="MutableWebAppFixture"
+          data-commentary-source="src/MutableWebAppFixture.tsx:45:9">
+          Save changes
+        </button>
+      </section>
+
+      <section data-page="release-notes" hidden>
+        <p class="eyebrow">Release</p>
+        <h1>Release notes</h1>
+        <p data-commentary-id="MutableWebAppFixture.releaseText">Mutable deployment text for re-anchor and agent handoff checks.</p>
+      </section>
+    </main>
+  </body>
+</html>

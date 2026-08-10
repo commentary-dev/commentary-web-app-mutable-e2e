@@ -1,0 +1,75 @@
+{
+  "routes": [
+    {
+      "route": "/frameable-sdk*",
+      "rewrite": "/index.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors https://commentary.dev https://staging.commentary.dev; frame-src https://commentary.dev https://staging.commentary.dev"
+      }
+    },
+    {
+      "route": "/frameable-no-sdk*",
+      "rewrite": "/no-sdk.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors https://commentary.dev https://staging.commentary.dev"
+      }
+    },
+    {
+      "route": "/unframeable-sdk*",
+      "rewrite": "/index.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'; frame-src https://commentary.dev https://staging.commentary.dev"
+      }
+    },
+    {
+      "route": "/unframeable-no-sdk*",
+      "rewrite": "/no-sdk.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'"
+      }
+    },
+    {
+      "route": "/overlay-blocked*",
+      "rewrite": "/index.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'; frame-src 'none'"
+      }
+    },
+    {
+      "route": "/auth-start*",
+      "rewrite": "/auth-start.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'; script-src 'self' 'unsafe-inline'"
+      }
+    },
+    {
+      "route": "/auth-return*",
+      "rewrite": "/index.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'; frame-src https://commentary.dev https://staging.commentary.dev"
+      }
+    },
+    {
+      "route": "/origin-drift*",
+      "rewrite": "/origin-drift.html",
+      "headers": {
+        "Content-Security-Policy": "frame-ancestors 'none'; script-src 'self' 'unsafe-inline'"
+      }
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/app.js",
+      "/styles.css",
+      "/no-sdk.html",
+      "/auth-start.html",
+      "/origin-drift.html"
+    ]
+  },
+  "globalHeaders": {
+    "Content-Security-Policy": "frame-ancestors https://commentary.dev https://staging.commentary.dev http://localhost:3000 http://localhost:3001",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  }
+}

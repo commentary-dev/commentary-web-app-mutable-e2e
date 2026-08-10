@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mutable Web App Review Fixture — Origin drift</title>
+  </head>
+  <body>
+    <p>Redirecting to the secondary controlled fixture origin.</p>
+    <script>
+      var destination = new URL("https://zealous-meadow-01c4d0a10.7.azurestaticapps.net/");
+      destination.search = window.location.search;
+      destination.hash = window.location.hash;
+      window.location.replace(destination.toString());
+    </script>
+  </body>
+</html>
