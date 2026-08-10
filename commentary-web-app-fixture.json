@@ -1,6 +1,6 @@
 {
   "sourceType": "azure_static_web_apps",
-  "expectedDeploymentUrl": "https://commentary-web-app-mutable-e2e.azurestaticapps.net/",
+  "expectedDeploymentUrl": "https://victorious-meadow-05ed04110.7.azurestaticapps.net/",
   "expectedSdkVersion": "0.3.0",
   "sdkScriptUrl": "https://cdn.commentary.dev/review-sdk/0.3.0/commentary-review-sdk.js",
   "mutable": true
