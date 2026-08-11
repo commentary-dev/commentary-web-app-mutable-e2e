@@ -1,6 +1,6 @@
 # Mutable Web App Review Fixture
 
-This app is reserved for `commentary-test/commentary-web-app-mutable-e2e`.
+This app is reserved for `commentary-dev/commentary-web-app-mutable-e2e` and its two staging Azure Static Web App deployments.
 
 Use it only for authenticated or agent automation that needs to create comments, change routes, update deployments, or validate agent handoff against mutable preview state.
 
